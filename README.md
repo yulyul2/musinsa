@@ -45,7 +45,7 @@ entry/js/
 |– index.js
 ```
 
-### 3. library
+### 3. Library
 ```bash
 libs/
 |
@@ -60,7 +60,7 @@ libs/
 | 
 ```
 
-### 4. webpack
+### 4. Webpack
 ```bash
 /
 |- webpack.config.js       # 웹팩 설정 파일
@@ -78,20 +78,20 @@ libs/
 ---
 ### 1. 프로젝트 clone
 * [git clone 주소 : https://github.com/yulyul2/musinsa.git] 
-* 위 주소로 프로젝트를 받아주세요
+* 위 주소로 프로젝트를 받아주세요.
 
 ### 2. 패키지 설치
 ``` bash
 $ npm install
 ```
-위 명령어로 패키지를 설치해주세요
+위 명령어로 패키지를 설치해 주세요.
 
 ### 3. 빌드
 ```bash
 $ npm run build 
 ```
-위 명령어로 프로젝트를 빌드합니다
+위 명령어로 프로젝트를 빌드합니다.
 
 ### 4. 결과물 확인
-* dist 폴더가 생성 되었다면 폴더안 index.html을 실행하여 확인 하시면 됩니다.
+* dist 폴더가 생성되었다면 폴더 안 index.html 파일을 실행하여 확인하시면 됩니다.
 
