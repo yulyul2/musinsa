@@ -4,6 +4,7 @@
 ## 프로젝트 구조
 ---
 ### 1. SCSS
+```bash
 entry/scss/
 |
 |– abstracts/
@@ -28,8 +29,10 @@ entry/scss/
 |   |– _update.scss       # 업데이트
 |
 |– index.scss
+```
 
 ### 2. JavaScript
+```bash
 entry/js/
 |
 |– components/
@@ -40,8 +43,10 @@ entry/js/
 |   |– scroll.js          # 스크롤
 |
 |– index.js
+```
 
 ### 3. library
+```bash
 libs/
 |
 |– css/
@@ -53,17 +58,21 @@ libs/
 |        |- 6.8.0/
 |             |- swiper-bundle.min.js
 | 
+```
 
 ### 4. webpack
+```bash
 /
 |- webpack.config.js       # 웹팩 설정 파일
 |- js-config.js            # js 설정 파일
 |- css-config.js           # css 설정 파일
+```
 
 ### 5. HTML
+```bash
 /
 |- index.html              # 인덱스 html
-
+```
 
 ## 실행 방법
 ---
