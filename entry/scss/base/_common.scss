@@ -1,0 +1,43 @@
+/*
+ *  File Name : /entry/scss/base/_common.scss
+ *  Description : common
+ */
+
+#container {
+    margin: 0 auto;
+    max-width: 640px;
+}
+body {
+    @include fontStyle($family: $G-font-family);
+    @include textStyle();
+}
+a {
+    color: $G-color-black;
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+select {
+    background: none;
+}
+.blind {
+    overflow: hidden;
+    position: absolute; 
+    clip: rect(0 0 0 0); 
+    width: 1px; 
+    height: 1px; 
+    margin: -1px;
+}
+.hidden {
+    overflow:hidden;
+}
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.main__container {
+    padding: 30px 0;
+}

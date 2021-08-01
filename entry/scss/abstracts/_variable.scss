@@ -1,0 +1,24 @@
+/*
+ *  File Name : /entry/scss/abstracts/_variable.scss
+ *  Description : variable
+ */
+
+$G-font-family: '--apple-system, BlinkMacSystemFont, "Segoe UI", helvetica, "Apple SD Gothic Neo", sans-serif';
+
+$G-color-black: #000;
+$G-color-gray-333: #333;
+$G-color-gray-777: #777;
+$G-color-gray-aaa: #aaa;
+$G-color-gray-ccc: #ccc;
+$G-color-white: #fff;
+$G-color-point-blue: #0078ff;
+$G-color-point-red: #ff0000;
+
+$G-image-url-logo: "data:image/svg+xml,%3Csvg viewBox='0 0 95 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M39.765 8.928c1.659.612 2.615.965 2.615 2.539 0 1.444-1.022 2.377-2.642 2.377-1.622 0-2.776-.977-2.776-2.6v-.222h-2.354c0 3.156 2.243 4.978 5.13 4.978 2.93 0 4.996-2.155 4.996-4.622 0-1.267-.4-2.067-1.066-2.778-.666-.711-1.488-1.155-2.865-1.667l-.888-.333c-1.954-.733-2.576-1.289-2.576-2.4 0-1.267.933-2.045 2.376-2.045 1.421 0 2.42.778 2.42 2.2v.29h2.354C44.49 1.8 42.691 0 39.715 0c-3.242 0-4.73 2.244-4.73 4.245 0 1.11.356 1.91.933 2.622.577.711 1.377 1.133 2.554 1.578l1.066.4.227.083zM13.812.222L8.216 9.267 2.642.222H0v15.556h2.22V3.51l4.974 8.067h2.044l4.996-8.067v12.267h2.22V.222h-2.642zM29.71 9.267V.222h2.243v9.022c0 4.245-2.42 6.756-6.063 6.756-3.641 0-6.062-2.51-6.062-6.756V.222h2.243v9.045c0 2.822 1.466 4.555 3.82 4.555 2.353 0 3.819-1.733 3.819-4.555zm17.85 6.51h2.266V.223h-2.265v15.556zm7.928 0V3.735l8.083 12.044h2.487V.222h-2.22v12.111L55.733.223h-2.465v15.555h2.22zm20.999-4.31c0-1.574-.957-1.927-2.615-2.538l-.228-.085-1.066-.4c-1.177-.444-1.976-.866-2.553-1.577-.578-.711-.933-1.512-.933-2.622 0-2 1.488-4.245 4.73-4.245 2.975 0 4.774 1.8 4.774 4.644h-2.354v-.288c0-1.423-.999-2.2-2.42-2.2-1.444 0-2.376.777-2.376 2.044 0 1.111.622 1.667 2.576 2.4l.888.333c1.377.512 2.198.956 2.865 1.667.666.711 1.065 1.511 1.065 2.778 0 2.466-2.065 4.622-4.996 4.622-2.887 0-5.13-1.822-5.13-4.978h2.354v.223c0 1.622 1.155 2.6 2.776 2.6 1.621 0 2.643-.934 2.643-2.378zm14.36-.023H83.92l-1.755 4.334h-2.287L86.162.222h2.443l6.284 15.556h-2.287l-1.754-4.334zM87.385 2.89l-2.576 6.356h5.151l-2.576-6.356z' fill='%23000'/%3E%3C/svg%3E";
+$G-image-url-alarm: "data:image/svg+xml,%3Csvg viewBox='0 0 20 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 3v.308c2.892.914 5 3.76 5 7.13v5.843L19 20h-4M8 3v.308C5.235 4.182 3.185 6.824 3.012 10v.5M3 12v4.281L1 20h12.004a3 3 0 01-6 0M8 3a2 2 0 114 0' stroke='%23000'/%3E%3C/svg%3E";
+$G-image-url-like: "data:image/svg+xml,%3Csvg viewBox='0 0 24 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.378 4.381l-1.726-1.725a5.493 5.493 0 10-7.768 7.768L12 19.539l3.526-3.526a6.08 6.08 0 00.417-.463l4.153-4.152m-6.7-8.837a5.493 5.493 0 017.77 7.766' stroke='%23000'/%3E%3C/svg%3E";
+$G-image-url-cart: "data:image/svg+xml,%3Csvg viewBox='0 0 18 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.5 17.5v-13h17V23h-12m-5-4v4H4m.5-16V5.439C4.5 2.71 6.515.5 9 .5s4.5 2.211 4.5 4.939V7' stroke='%23000'/%3E%3C/svg%3E";
+$G-image-url-arrow: "data:image/svg+xml,%3Csvg viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M.7 1.107l3.889 3.889L.7 8.885l.707.708 4.597-4.597L1.407.4.7 1.107z' fill='%23777'/%3E%3C/svg%3E";
+$G-image-url-select: "data:image/svg+xml,%3Csvg viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.2 2.3a1.8 1.8 0 01-3.6 0m3.6 0a1.8 1.8 0 00-3.6 0m3.6 0H12m-5.4 0H0m5.4 4.2a1.8 1.8 0 01-3.6 0m3.6 0a1.8 1.8 0 00-3.6 0m3.6 0H12m-10.2 0H0m10.2 4.2a1.8 1.8 0 01-3.6 0m3.6 0a1.8 1.8 0 00-3.6 0m3.6 0H12m-5.4 0H0' stroke='%23000'/%3E%3C/svg%3E";
+$G-image-url-play: "data:image/svg+xml,%3Csvg viewBox='0 0 26 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18 0a8 8 0 01.25 15.996L18 16h-7v-1h7a7 7 0 00.24-13.996L18 1H8a7 7 0 00-6.996 6.76L1 8H0A8 8 0 017.75.004L8 0h10zM1 8.012c0 .22.011.44.032.66l-.996.094C.013 8.516 0 8.266 0 8.013l1-.001zm1.339 4.106a6.983 6.983 0 01-.888-1.642l-.936.354c.253.669.595 1.3 1.015 1.877l.809-.59zm1.314 1.369c.49.388 1.028.71 1.603.955l-.392.92A7.996 7.996 0 013.03 14.27l.622-.783zM9 15H8a7.06 7.06 0 01-.932-.062l-.132.992c.35.046.706.07 1.064.07h1v-1zm2-10.72v7.436l6.395-3.718L11 4.28zm1 1.738l3.404 1.98L12 9.978v-3.96z' fill='%23000'/%3E%3C/svg%3E";
+$G-image-url-refresh: "data:image/svg+xml,%3Csvg viewBox='0 0 18 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 9.5a6 6 0 11-1-3.318V5h1v3.5h-3.5v-1h2.084A5.001 5.001 0 004 9.5a5 5 0 0010 0h1z' fill='%23777'/%3E%3Cmask id='a' maskUnits='userSpaceOnUse' x='3' y='3' width='12' height='13'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 9.5a6 6 0 11-1-3.318V5h1v3.5h-3.5v-1h2.084A5.001 5.001 0 004 9.5a5 5 0 0010 0h1z' fill='%23fff'/%3E%3C/mask%3E%3C/svg%3E";

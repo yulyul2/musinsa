@@ -1,0 +1,161 @@
+/*
+ *  File Name : /entry/scss/pages/_codi.scss
+ *  Description : codi
+ */
+
+.section__item-codi {
+    margin-top: 15px;
+
+    .product-list__area {
+        @extend %space-margin;
+
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+        .product-list {
+            &__item {
+                position: relative;
+                width: calc(100% / 2 - 3px);
+                margin: 0 1.5px 25px;
+            }
+            &__link {
+                display: block;
+                position: relative;
+            }
+            &__image {
+                overflow: hidden;
+                position: relative;
+                padding-top: 150%;
+                border-radius: 6px;
+    
+                img {
+                    @extend %image-position-center;
+                }
+            }
+        }
+    }
+    .product-list__area-type1 {
+        .product-list {
+            &__info {
+                display: -webkit-flex;
+                display: flex;
+                overflow: hidden;
+                position: relative;
+                height: 54px;
+                margin-top: 10px;
+
+                &--left {
+                    position: absolute;
+                    left: 0;
+                    width: 45px;
+                    height: 100%;
+                }
+                &--right {
+                    display: -webkit-flex;
+                    display: flex;
+                    -webkit-flex-direction: column;
+                    flex-direction: column;
+                    -webkit-justify-content: center;
+                    justify-content: center;
+                    position: absolute;
+                    right: 0;
+                    width: calc(100% - 55px);
+                    height: 100%;
+                    padding-left: 10px;
+                }
+            }
+            &__thumbnail {
+                img {
+                    @extend %image-position-center;
+                }
+            }
+            &__name {
+                @include fontStyle($family: $G-font-family);
+                @include ellipsis(1);
+                
+                width: 100%;
+                color: $G-color-gray-777;
+            }
+            &__price {
+                em {
+                    @include fontStyle($weight: bold, $family: $G-font-family);
+                    @include ellipsis(1);
+
+                    display: inline-block;
+                    max-width: calc(100% - 40px);
+                }
+            }
+            &__badge {
+                &-sale {
+                    @include fontStyle($weight: bold, $family: $G-font-family);
+                    @include textStyle($color: $G-color-point-red, $line-height: 22px);
+    
+                    display: inline-block;
+                    position: relative;
+                    top: -4px;
+                    margin: 0 2px;
+                }
+            }
+        }
+    }
+    .product-list__area-type2 {
+        .has-icon-play::after {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+        }
+        .product-list__item--cut4 {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+            
+            .product-list {
+                &__link {
+                    width: calc(100% / 2 - 3px);
+                    margin: 0 1.5px;
+                    padding-top: 75%;
+                }
+                &__image {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    padding-top: 0;
+                }
+                &__info {
+                    display: -webkit-flex;
+                    display: flex;
+                    -webkit-flex-direction: column;
+                    flex-direction: column;
+                    -webkit-justify-content: center;
+                    justify-content: center;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 35px;
+                    background-color: #f9f9f9;
+                }
+                &__name {
+                    @include fontStyle($family: $G-font-family);
+                    @include ellipsis(1);
+
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .button-box {
+        &__area {
+            text-align: center;
+
+            .button__type-1::after {
+                margin-left: 7px;
+            }
+        }
+    }
+}

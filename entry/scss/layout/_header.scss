@@ -1,0 +1,112 @@
+/*
+ *  File Name : /entry/scss/layout/_header.scss
+ *  Description : header
+ */
+
+.header {
+    position: relative;
+    z-index: 10;
+    max-width: 640px;
+    width: 100%;
+    height: 50px;
+    padding: 0 8px;
+    background-color: $G-color-white;
+    box-sizing: border-box;
+
+    &.position-fixed {
+        position: fixed;
+    }
+    &__inner {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        position: relative;
+    }
+    &__title {
+        margin: 0 auto;
+    
+        .icon-logo {
+            display: block; 
+            padding: 0 20px;
+            line-height: 50px;
+        }
+    }
+    &__item--left {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        position: absolute; 
+        left: 0;
+        top: 0;
+        height: 100%;
+    
+        .icon-alarm {
+            position:relative;
+            padding: 6px 8px;
+    
+            &::after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                top: 4px;
+                width: 4px;
+                height: 4px;
+                background-color: $G-color-point-blue;
+                border-radius: 50%;
+            }
+            &:not(.icon-alarm--new) {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+    &__item--right {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        overflow: hidden;
+        position: absolute; 
+        right: 0;
+        top: 0;
+        height: 100%;
+    
+        .icon-like {
+            float: left;
+            position: relative;
+            top: 2px;
+            padding: 6px 8px;
+    
+        }
+        .icon-cart {
+            float: left;
+            position: relative;
+            margin-left: 4px;
+            padding: 6px 8px;
+    
+            .count {
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+                width: 18px;
+                height: 18px;
+                background-color: $G-color-point-blue;
+                border-radius: 50%;
+                font-size: 11px;
+                color: $G-color-white;
+                line-height: 18px;
+            }
+            &:not(.icon-cart--count) {
+                .count {
+                    display: none;
+                }
+            }
+        }
+    }
+}

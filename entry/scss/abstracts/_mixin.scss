@@ -1,0 +1,104 @@
+/*
+ *  File Name : /entry/scss/abstracts/_mixin.scss
+ *  Description : mixin
+ */
+
+@mixin fontStyle(
+    $style: normal,
+    $weight: normal,
+    $size: 12px,
+    $family: sans-serif
+){
+    font: {
+        style: $style;
+        weight: $weight;
+        size: $size;
+        family: $family;
+    }
+}
+
+@mixin textStyle(
+    $color: $G-color-black,
+    $line-height: 18px,
+    $letter-spacing: -0.5px
+){
+    color: $color;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+}
+
+@mixin ellipsis($line: 1) {
+    @if ($line == 1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } 
+    @else {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $line;
+    }
+}
+
+@mixin buttonStyle(
+    $width: auto, 
+    $height: 40px, 
+    $padding: 0 20px,
+    $border-width: 1px, 
+    $border-style: solid, 
+    $border-color: #f1f1f1,
+    $border-radius: 20px,
+    $text-align: center
+) {
+    display: inline-block;
+    width: $width;
+    height: $height;
+    padding: 0 20px;
+    border-width: $border-width;
+    border-style: $border-style;
+    border-color: $border-color;
+    border-radius: $border-radius;
+    text-align: $text-align;
+}
+
+@mixin iconBefore($width, $height, $url, $vertical-align: middle) {
+    &::before {
+        content: '';
+        display: inline-block;
+        width: $width;
+        height: $height;
+        background: {
+            image: url($url);
+            repeat: no-repeat;
+            size: cover;
+            position: 0 0;
+        }
+        vertical-align: $vertical-align;
+        @content;
+    }
+}
+
+@mixin iconAfter($width, $height, $url, $vertical-align: middle) {
+    &::after {
+        content: '';
+        display: inline-block;
+        width: $width;
+        height: $height;
+        background: {
+            image: url($url);
+            repeat: no-repeat;
+            size: cover;
+            position: 0 0;
+        }
+        vertical-align: $vertical-align;
+        @content;
+    }
+}
+
+@mixin halfHeight($this-height) {
+    position: absolute; 
+    top: 50%; 
+    margin-top: $this-height / 2;
+}

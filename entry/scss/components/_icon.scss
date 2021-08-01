@@ -1,0 +1,36 @@
+/*
+ *  File Name : /entry/scss/components/_icon.scss
+ *  Description : icon
+ */
+
+.icon {
+    &-logo {
+        @include iconBefore(95px, 16px, $G-image-url-logo, baseline);
+    }
+    &-alarm {
+        @include iconBefore(18px, 22px, $G-image-url-alarm);
+    }
+    &-like {
+        @include iconBefore(22px, 19px, $G-image-url-like);
+    }
+    &-cart {
+        @include iconBefore(17px, 23px, $G-image-url-cart);
+    }
+}
+.has-icon {
+    &-arrow-5x9 {
+        @include iconAfter(5px, 9px, $G-image-url-arrow, baseline);
+    }
+    &-arrow-7x12 {
+        @include iconAfter(7px, 12px, $G-image-url-arrow, baseline);
+    }
+    &-select {
+        @include iconAfter(12px, 14px, $G-image-url-select, baseline);
+    }
+    &-play {
+        @include iconAfter(26px, 16px, $G-image-url-play);
+    }
+    &-refresh {
+        @include iconBefore(15px, 15px, $G-image-url-refresh);
+    }
+}

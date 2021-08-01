@@ -1,0 +1,188 @@
+/*
+ *  File Name : /entry/scss/components/_swiper.scss
+ *  Description : swiper
+ */
+
+.visual-banner {
+    &__item {
+        position: relative;
+
+        &:nth-child(3n) {
+            .visual-banner__title {
+                @include textStyle($color: $G-color-white, $line-height: 39px, $letter-spacing: 0);
+            }
+        }        
+    }
+    &__link {
+        display: block;
+    }
+    &__sub-text {
+        @include fontStyle($weight: 500, $size: 15px, $family: $G-font-family);
+        @include textStyle($color: $G-color-white, $line-height: 22px, $letter-spacing: 0);
+        @include ellipsis(1);
+
+        position: absolute;
+        top: 40px;
+        width: calc(100% - 50px);
+        padding: 0 25px;
+    }
+    &__main-text {
+        position: absolute;
+        bottom: 70px;
+        width: calc(100% - 50px);
+        padding: 0 25px;
+
+        .visual-banner__title {
+            @include fontStyle($weight: 500, $size: 30px, $family: $G-font-family);
+            @include textStyle($color: $G-color-white, $line-height: 39px, $letter-spacing: -1.5px);
+            @include ellipsis(3);
+
+            width: 220px;
+            max-height: 220px;
+            word-break: keep-all;
+        }
+        .visual-banner__description {
+            @include fontStyle($size: 14px, $family: $G-font-family);
+            @include textStyle($color: $G-color-white, $line-height: 21px);
+            @include ellipsis(1);
+
+            margin-top: 20px;
+        }
+    }
+    .swiper-pagination {
+        bottom: 25px;
+
+        &-bullet {
+            width: 6px;
+            height: 6px;
+            background-color: $G-color-white;
+            opacity: 0.5;
+        }
+        &-bullet-active,
+        &-bullet-active-main {
+            background-color: $G-color-white;
+            opacity: 1;
+        }
+    }
+}
+.event-banner {
+    @extend %space-margin;
+
+    padding: 40px 0 60px;
+
+    &__swiper {
+        padding-bottom: 30px;
+    }
+    &__item {
+        overflow: hidden;
+        height: 90px;
+        background-color: #f9f9f9;
+        border-radius: 6px;
+    }
+    &__link {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }   
+    &__image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 135px;
+        height: 100%;
+
+        img {
+            @extend %image-position-center;
+        }
+    } 
+    &__info {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: calc(100% - 135px);
+        height: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+
+        &-title {
+            @include fontStyle($weight: bold, $size: 15px, $family: $G-font-family);
+            @include ellipsis(2);
+
+            line-height: 21px;
+            word-break: keep-all;
+        }
+        &-description {
+            @include ellipsis(1);
+            
+            color: $G-color-gray-777;
+        }
+    }
+    .swiper-pagination {
+        &-bullet {
+            width: 6px;
+            height: 6px;
+            margin: 0 3px;
+            background-color: $G-color-gray-ccc;
+            opacity: 1;
+        }
+        &-bullet-active {
+            background-color: $G-color-black;
+        }
+    }
+    &-type2 {
+        .event-banner {
+            &__item {
+                overflow: visible;
+                height: 80px;
+                background-color: #484848;
+            }
+            &__link {
+                overflow: visible;
+            }
+            &__info {
+                right: auto;
+                left: 0;
+
+                &-title {
+                    @include ellipsis(1);
+                    
+                    color: $G-color-white;
+                }
+                &-description {
+                    color: $G-color-white;
+                    line-height: 21px;
+                    opacity: 0.65;
+                }
+            }
+            &__image {
+                left: auto;
+                right: 0;
+
+                img {
+                    height: 90px;
+                    width: auto;
+                }
+            } 
+        }
+    }
+    &-type3,
+    &-type4 {
+        .event-banner__info {
+            -webkit-align-items: start;
+            align-items: start;
+        }
+    }
+}

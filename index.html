@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSINSA</title>
+    <link rel="stylesheet" type="text/css" href="./libs/css/swiper/6.8.0/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/index.min.css">
+</head>
+<body>
+    <div id="container">
+        <!-- * 헤더 -->
+        <header class="header">
+            <div class="header__inner">
+                <h1 class="header__title">
+                    <a href="javascript:void(0)" class="icon icon-logo"><span class="blind">MUSINSA</span></a>
+                </h1>
+                <div class="header__item--left">
+                    <!-- [Dev] 알림 있을 경우 : class 'icon-alarm--new' 적용 -->
+                    <button type="button" class="icon icon-alarm icon-alarm--new">
+                        <span class="blind">알림</span>
+                    </button>
+                </div>
+                <div class="header__item--right">
+                    <button type="button" class="icon icon-like">
+                        <span class="blind">좋아요</span>
+                    </button>
+                    <!-- [Dev] 장바구니 항목 있을 경우 : class 'icon-cart--count' 적용 -->
+                    <button type="button" class="icon icon-cart icon-cart--count">
+                        <span class="blind">장바구니</span>
+                        <span class="count">9</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- * 비주얼 배너 슬라이더 -->
+        <section class="visual-banner">
+            <div class="swiper-container visual-banner__swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide visual-banner__item">
+                        <a href="javascript:void(0)" class="visual-banner__link">
+                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/img1.jpg" alt="쿠어 21 S/S 신상품 한정 발매">
+                            <p class="visual-banner__sub-text">Showcase</p>
+                            <div class="visual-banner__main-text">
+                                <p class="visual-banner__title">쿠어 21 S/S 신상품 한정 발매</p>
+                                <p class="visual-banner__description">신상품 증정 이벤트</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide visual-banner__item">
+                        <a href="javascript:void(0)" class="visual-banner__link">
+                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/img2.jpg" alt="인사일런스 우먼 프로젝트 성수">
+                            <p class="visual-banner__sub-text">Showcase</p>
+                            <div class="visual-banner__main-text">
+                                <p class="visual-banner__title">인사일런스 우먼 프로젝트 성수</p>
+                                <p class="visual-banner__description">성수 티셔츠 선발매 및 21 S/S 최대 15% 할인</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide visual-banner__item">
+                        <a href="javascript:void(0)" class="visual-banner__link">
+                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/img3.jpg" alt="BOUTIQUE Grand Open">
+                            <p class="visual-banner__sub-text">Open</p>
+                            <div class="visual-banner__main-text">
+                                <p class="visual-banner__title">BOUTIQUE Grand Open</p>
+                                <p class="visual-banner__description">무신사가 선보이는 럭셔리 편집숍 오픈 기념 이벤트</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        <main class="main__container">
+            <!-- 
+            [탭 메뉴 공통]    
+                1) 탭 메뉴
+                - navigation-tab > navigation-tab__button
+                - 버튼 클릭 시 class 'navigation-tab__button--selected' 추가
+
+                2) 탭 섹션
+                - navigation-tab__section > navigation-tab__section-item
+                - 기본 : display:none 상태
+                - 버튼에 해당되는 섹션에 class 'navigation-tab__section-item--show' 적용 시 display:block
+
+                3) 관련 script 참조 : js/components/tab.js
+                - tab 버튼 클릭에 따른 class 추가는 data-label 값으로 구분
+            -->
+            <nav class="navigation-tab">            
+                <button type="button" class="navigation-tab__button navigation-tab__button--selected" data-label="navigation-tab-ranking">랭킹</button>
+                <button type="button" class="navigation-tab__button" data-label="navigation-tab-codi">코디</button>
+                <button type="button" class="navigation-tab__button" data-label="navigation-tab-update">업데이트</button>
+            </nav>
+            <div class="section__wrap navigation-tab__section">
+                <div class="section__header">
+                    <h2 class="blind">상품</h2>
+                </div>
+                <!-- * 섹션1 : 랭킹 -->
+                <section class="section__item section__item-ranking navigation-tab__section-item navigation-tab__section-item--show" data-label="navigation-tab-ranking">
+                    <div class="section__title">
+                        <div class="section__title--left clearfix">
+                            <h3>상품 랭킹</h3>
+                            <a href="javascript:void(0)" class="button-all has-icon-arrow-5x9">전체</a>
+                        </div>
+                        <div class="section__title--right has-icon-select">
+                            <select name="selectAge" id="selectAge" class="select-age">
+                                <option value="all" selected>전체 연령대</option>
+                                <option value="10">10대</option>
+                                <option value="20">20대</option>
+                                <option value="30">30대</option>
+                                <option value="40">40대</option>
+                                <option value="50">50대</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 
+                    [스크롤 내비게이션 공통]    
+                        1) 스크롤 내비게이션
+                        - navigation-scroll > navigation-scroll__area > navigation-scroll__button
+                        - 버튼 클릭 시 class 'navigation-scroll__button--selected' 추가
+                    -->
+                    <nav class="navigation-scroll">
+                        <div class="navigation-scroll__area">
+                            <button type="button" class="navigation-scroll__button navigation-scroll__button--selected" data-label="button-1">전체</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-2">상의</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-3">아우터</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-4">바지</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-5">가방</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-6">신발</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-7">스니커즈</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-8">모자</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-9">양말</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-10">레그웨어</button><button type="button" class="navigation-scroll__button" data-label="button-2">상의</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-11">아우터</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-12">바지</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-13">가방</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-14">신발</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-15">스니커즈</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-16">모자</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-17">양말</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-18">레그웨어</button>
+                        </div>
+                    </nav>
+                    <!-- 
+                    [상품(랭킹) 공통]
+                        1) 구조 
+                        - product-list__area > product-list__item
+
+                        2) 리스트 아이템 열 개수
+                        - 기본 : 3개
+                        - 2개씩 노출 시 : class 'product-list__item--colum2' 적용 
+                    -->
+                    <!-- * 상품 : 랭킹 상단 -->
+                    <div class="product-list__area">
+                        <div class="product-list__item product-list__item--colum2">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <!--  
+                                [badge-rank : 랭킹 관련 배지]
+                                    - ranking 섹션에서만 사용
+                                    - 숫자 카운트, 상위 랭크 bg 다르게 처리
+                                    - 관련 script 참조 : js/components/ranking.js 
+                                -->
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img5.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어라퍼지스토어라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                    <!-- [Dev] sale, coupon 배지 노출 
+                                        : 각각 'product-list__badge-sale', 'product-list__badge-coupon'
+                                        coupon 배지의 경우 class 'product-list__badge-coupon--on' 적용
+                                    -->
+                                        <em>74,900000000</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-sale">24%</span>
+                                            <span class="product-list__badge-coupon product-list__badge-coupon--on">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item product-list__item--colum2">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img2.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-sale">24%</span>
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon product-list__badge-coupon--on">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- * 배너 : 슬라이더 type1 (이벤트 슬라이더 구조는 동일 / -type 값으로 구분) -->
+                    <div class="event-banner event-banner-type1">
+                        <div class="swiper-container event-banner__swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="핸드크림">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">손 피부를 보호해줄 핸드크림 추천 랭킹</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="핸드크림">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">손 피부를 보호해줄 핸드크림 추천 랭킹</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="핸드크림">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">손 피부를 보호해줄 핸드크림 추천 랭킹</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="핸드크림">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">손 피부를 보호해줄 핸드크림 추천 랭킹</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="핸드크림">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">손 피부를 보호해줄 핸드크림 추천 랭킹</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <!-- * 상품 : 랭킹 중단 1 (product-list__area 반복) -->
+                    <div class="product-list__area">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img5.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-sale">24%</span>
+                                            <span class="product-list__badge-coupon product-list__badge-coupon--on">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img6.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-sale">24%</span>
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img2.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon product-list__badge-coupon--on">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img5.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img6.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img2.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- * 배너 : 슬라이더 type2 (이벤트 슬라이더 구조는 동일 / -type 값으로 구분 -->
+                    <div class="event-banner event-banner-type2">
+                        <div class="swiper-container event-banner__swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <!-- * 상품 : 랭킹 중단 2 (product-list__area 반복) -->
+                    <div class="product-list__area">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img5.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img6.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img2.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- * 배너 : 슬라이더 type3 (이벤트 슬라이더 구조는 동일 / -type 값으로 구분 -->
+                    <div class="event-banner event-banner-type3">
+                        <div class="swiper-container event-banner__swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub2.jpg" alt="마르지엘라 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">마르지엘라 서머 페스티벌 컬렉션</p>
+                                            <p class="event-banner__info-description">6.28 - 7.23</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub2.jpg" alt="마르지엘라 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">마르지엘라 서머 페스티벌 컬렉션</p>
+                                            <p class="event-banner__info-description">6.28 - 7.23</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub2.jpg" alt="마르지엘라 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">마르지엘라 서머 페스티벌 컬렉션</p>
+                                            <p class="event-banner__info-description">6.28 - 7.23</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <!-- * 상품 : 랭킹 중단 3 (product-list__area 반복) -->
+                    <div class="product-list__area">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img5.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img6.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img2.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img5.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img6.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img2.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- * 배너 : 슬라이더 type4 (이벤트 슬라이더 구조는 동일 / -type 값으로 구분 -->
+                    <div class="event-banner event-banner-type4">
+                        <div class="swiper-container event-banner__swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub2.jpg" alt="마르지엘라 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">신발 좋아요 신발 좋아요 신발 좋아요</p>
+                                            <p class="event-banner__info-description">키르시 &middot; 133개 댓글</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <!-- * 상품 : 랭킹 하단 (product-list__area 반복) -->
+                    <div class="product-list__area">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img5.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img6.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img2.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <span class="badge-rank">1</span>
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="랭킹 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">라퍼지스토어</p>
+                                    <div class="product-list__price">
+                                        <em>74,900</em>
+                                        <div class="product-list__badge">
+                                            <span class="product-list__badge-coupon">쿠폰</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bottom-box__area">
+                        <div class="bottom-box__update">
+                            <span>5분 전 갱신</span>
+                        </div>
+                        <div class="bottom-box__button">
+                            <a href="javascript:void(0)" class="button__type-1 has-icon-arrow-7x12">상품 랭킹 전체 보기</a>
+                        </div>
+                    </div>
+                </section>
+                <!-- * 섹션2 : 코디 -->
+                <section class="section__item section__item-codi navigation-tab__section-item" data-label="navigation-tab-codi">
+                    <nav class="navigation-scroll">
+                        <div class="navigation-scroll__area">
+                            <button type="button" class="navigation-scroll__button navigation-scroll__button--selected" data-label="button-1">무신사 스탠다드</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-2">스포츠&아웃도어</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-3">포멀&어반 캐주얼</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-4">뷰티 패션</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-5">무신사 스탠다드</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-6">스포츠&아웃도어</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-7">포멀&어반 캐주얼</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-8">뷰티 패션</button>
+                        </div>
+                    </nav>
+                    <!-- 
+                    [상품(코디) 공통]
+                        1) 구조 
+                        - product-list__area > product-list__item
+
+                        2) 리스트 아이템 열 개수
+                        - 기본 : 2개
+
+                        3) type 으로 구분
+                        - ex) product-list__area-type1, product-list__area-type2 ...
+                    -->
+                    <!-- * 상품 : 코디 1 (type1) -->
+                    <div class="product-list__area product-list__area-type1">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img1.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <div class="product-list__info--left product-list__thumbnail">
+                                        <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img1.jpg" alt="코디 상품 이미지">
+                                    </div>
+                                    <div class="product-list__info--right">
+                                        <p class="product-list__name">무신사 스탠다드스탠다드스탠다드</p>
+                                        <div class="product-list__price">
+                                        <!-- [Dev] sale 배지 노출 : product-list__badge-sale -->
+                                            <em>74,90000000</em>
+                                            <span class="product-list__badge-sale">24%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img2.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <div class="product-list__info--left product-list__thumbnail">
+                                        <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img2.jpg" alt="코디 상품 이미지">
+                                    </div>
+                                    <div class="product-list__info--right">
+                                        <p class="product-list__name">무신사 스탠다드</p>
+                                        <div class="product-list__price">
+                                            <em>74,900</em>
+                                            <span class="product-list__badge-sale">24%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img3.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <div class="product-list__info--left product-list__thumbnail">
+                                        <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img3.jpg" alt="코디 상품 이미지">
+                                    </div>
+                                    <div class="product-list__info--right">
+                                        <p class="product-list__name">무신사 스탠다드</p>
+                                        <div class="product-list__price">
+                                            <em>74,900</em>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img4.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <div class="product-list__info--left product-list__thumbnail">
+                                        <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img4.jpg" alt="코디 상품 이미지">
+                                    </div>
+                                    <div class="product-list__info--right">
+                                        <p class="product-list__name">무신사 스탠다드</p>
+                                        <div class="product-list__price">
+                                            <em>74,900</em>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="button-box__area">
+                        <a href="javascript:void(0)" class="button__type-1 has-icon-arrow-7x12">전체 보기</a>
+                    </div>
+                    <!-- * 배너 : 슬라이더 type4 (이벤트 슬라이더 구조는 동일 / -type 값으로 구분 -->
+                    <div class="event-banner event-banner-type4">
+                        <div class="swiper-container event-banner__swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub2.jpg" alt="마르지엘라 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">신발 좋아요 신발 좋아요 신발 좋아요</p>
+                                            <p class="event-banner__info-description">키르시 &middot; 133개 댓글</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub2.jpg" alt="마르지엘라 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">신발 좋아요 신발 좋아요 신발 좋아요</p>
+                                            <p class="event-banner__info-description">키르시 &middot; 133개 댓글</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub2.jpg" alt="마르지엘라 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">신발 좋아요 신발 좋아요 신발 좋아요</p>
+                                            <p class="event-banner__info-description">키르시 &middot; 133개 댓글</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <nav class="navigation-scroll">
+                        <div class="navigation-scroll__area">
+                            <button type="button" class="navigation-scroll__button navigation-scroll__button--selected" data-label="button-1">무신사 스탠다드</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-2">스포츠&아웃도어</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-3">포멀&어반 캐주얼</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-4">뷰티 패션</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-5">무신사 스탠다드</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-6">스포츠&아웃도어</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-7">포멀&어반 캐주얼</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-8">뷰티 패션</button>
+                        </div>
+                    </nav>
+                    <!-- * 상품 : 코디 2 (type2) -->
+                    <!--
+                        [Dev] 플레이 버튼 추가 시 : class 'has-icon-play' 적용
+                    -->
+                    <div class="product-list__area product-list__area-type2">
+                        <div class="product-list__item has-icon-play">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img8.jpg" alt="코디 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item has-icon-play">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img5.jpg" alt="코디 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img6.jpg" alt="코디 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img8.jpg" alt="코디 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img8.jpg" alt="코디 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <!-- 
+                            4컷으로 분리되는 케이스 
+                            : product-list__item에 class 'product-list__item--cut4' 추가 필요 
+                        -->
+                        <div class="product-list__item product-list__item--cut4">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img1.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">코디숍코디숍코디숍코디숍코디숍코디숍</p>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img2.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">코디맵</p>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img3.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">브랜드 스냅</p>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img4.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">스트릿 스냅</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- * 배너 : 슬라이더 type2 (이벤트 슬라이더 구조는 동일 / -type 값으로 구분 -->
+                    <div class="event-banner event-banner-type2">
+                        <div class="swiper-container event-banner__swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <nav class="navigation-scroll">
+                        <div class="navigation-scroll__area">
+                            <button type="button" class="navigation-scroll__button navigation-scroll__button--selected" data-label="button-1">무신사 스탠다드</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-2">스포츠&아웃도어</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-3">포멀&어반 캐주얼</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-4">뷰티 패션</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-5">무신사 스탠다드</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-6">스포츠&아웃도어</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-7">포멀&어반 캐주얼</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-8">뷰티 패션</button>
+                        </div>
+                    </nav>
+                    <!-- * 상품 : 코디 3 (type2 반복) -->
+                    <div class="product-list__area product-list__area-type2">
+                        <div class="product-list__item has-icon-play">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img8.jpg" alt="코디 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item has-icon-play">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img6.jpg" alt="코디 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item product-list__item--cut4">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img1.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">코디숍</p>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img2.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">코디맵</p>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img3.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">브랜드 스냅</p>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img4.jpg" alt="코디 상품 이미지">
+                                </div>
+                                <div class="product-list__info">
+                                    <p class="product-list__name">스트릿 스냅</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img8.jpg" alt="코디 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img8.jpg" alt="코디 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/coordi/img5.jpg" alt="코디 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- * 배너 : 슬라이더 type3 (이벤트 슬라이더 구조는 동일 / -type 값으로 구분 -->
+                    <div class="event-banner event-banner-type3">
+                        <div class="swiper-container event-banner__swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub2.jpg" alt="마르지엘라 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">마르지엘라 서머 페스티벌 컬렉션</p>
+                                            <p class="event-banner__info-description">6.28 - 7.23</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub2.jpg" alt="마르지엘라 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">마르지엘라 서머 페스티벌 컬렉션</p>
+                                            <p class="event-banner__info-description">6.28 - 7.23</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub2.jpg" alt="마르지엘라 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">마르지엘라 서머 페스티벌 컬렉션</p>
+                                            <p class="event-banner__info-description">6.28 - 7.23</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- * 섹션3 : 업데이트 -->
+                <section class="section__item section__item-update navigation-tab__section-item" data-label="navigation-tab-update">
+                    <!-- 
+                    [상품(업데이트) 공통]
+                        1) 구조 
+                        - product-list__area > product-list__item
+
+                        2) 리스트 아이템 열 개수
+                        - product-list__area-type1 : 2개
+                        - product-list__area-type2 : 4개
+
+                        3) type 으로 구분
+                        - ex) product-list__area-type1, product-list__area-type2 ...
+
+                        4) product-list__area-type2 상품 최대 개수
+                        - 7개
+                        - 7개 이상일 경우 > 전체보기 박스 생성 (product-list__more-view)
+                        - 관련 script 참조 : js/components/productsLimit.js
+                    -->
+                    <!-- * 상품 : 업데이트 1 (type1) -->
+                    <div class="product-list__area product-list__area-type1">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                                <p class="product-list__title">스웨터 셔츠 & 슬랙스 신상품 발매 신상품 발매 신상품 발매 신상품 발매</p>
+                                <div class="product-list__info">
+                                    <span class="product-list__name">마땡킴마땡킴마땡킴마땡킴마땡킴</span>
+                                    <!-- [Dev] 강조 컬러 : class 'product-list__comment-point' 적용 -->
+                                    <span class="product-list__comment product-list__comment-point"><em>1133</em>개 댓글</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                                <p class="product-list__title">신상품 발매</p>
+                                <div class="product-list__info">
+                                    <span class="product-list__name">마땡킴</span>
+                                    <span class="product-list__comment"><em>133</em>개 댓글</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                                <p class="product-list__title">스웨터 셔츠 & 슬랙스 신상품 발매</p>
+                                <div class="product-list__info">
+                                    <span class="product-list__name">마땡킴</span>
+                                    <span class="product-list__comment"><em>133</em>개 댓글</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                                <p class="product-list__title">스웨터 셔츠 & 슬랙스 신상품 발매</p>
+                                <div class="product-list__info">
+                                    <span class="product-list__name">마땡킴</span>
+                                    <span class="product-list__comment"><em>133</em>개 댓글</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="button-box__area">
+                        <a href="javascript:void(0)" class="button__type-1 has-icon-refresh">새로운 추천</a>
+                    </div>
+                    <div class="section__title">
+                        <h3>업데이트 소식</h3>
+                        <a href="javascript:void(0)" class="button-all has-icon-arrow-5x9">전체</a>
+                    </div>
+                    <nav class="navigation-scroll">
+                        <div class="navigation-scroll__area">
+                            <button type="button" class="navigation-scroll__button navigation-scroll__button--selected" data-label="button-1">MD추천</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-2">재입고</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-3">세일 소식</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-4">인기 상품</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-5">신상품</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-6">이벤트</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-7">입점</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-8">재입고</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-9">세일 소식</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-10">인기 상품</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-11">신상품</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-12">이벤트</button>
+                            <button type="button" class="navigation-scroll__button" data-label="button-13">입점</button>
+                        </div>
+                    </nav>
+                    <!-- * 상품 : 업데이트 2 (type2) -->
+                    <div class="product-list__area product-list__area-type2 product-list__count">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img7.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__info-area">
+                            <p class="product-list__title">버켄스탁 인기상품 재입고버켄스탁 인기상품 재입고버켄스탁 인기상품 재입고버켄스탁 인기상품 재입고</p>
+                            <div class="product-list__info">
+                                <span class="product-list__time">15분전</span>
+                                <span class="product-list__comment"><em>133</em>개 댓글</span>
+                                <!-- [Dev] 쇼케이스 아이콘 노출 : class 'product-list__showcase--on' -->
+                                <span class="product-list__showcase product-list__showcase--on">쇼케이스 진행중</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- * 상품 : 업데이트 3 (type2) -->
+                    <div class="product-list__area product-list__area-type2 product-list__count">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__info-area">
+                            <p class="product-list__title">버켄스탁 인기상품 재입고</p>
+                            <div class="product-list__info">
+                                <span class="product-list__time">15분전</span>
+                                <span class="product-list__comment"><em>133</em>개 댓글</span>
+                                <span class="product-list__showcase product-list__showcase--on">쇼케이스 진행중</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- * 상품 : 업데이트 4 (type2) -->
+                    <div class="product-list__area product-list__area-type2 product-list__count">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub1.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__info-area">
+                            <p class="product-list__title">버켄스탁 인기상품 재입고</p>
+                            <div class="product-list__info">
+                                <span class="product-list__time">15분전</span>
+                                <span class="product-list__comment"><em>133</em>개 댓글</span>
+                                <span class="product-list__showcase">쇼케이스 진행중</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- * 상품 : 업데이트 5 (type2) -->
+                    <div class="product-list__area product-list__area-type2 product-list__count">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img4.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__info-area">
+                            <p class="product-list__title">버켄스탁 인기상품 재입고</p>
+                            <div class="product-list__info">
+                                <span class="product-list__time">15분전</span>
+                                <span class="product-list__comment"><em>133</em>개 댓글</span>
+                                <span class="product-list__showcase">쇼케이스 진행중</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- * 상품 : 업데이트 6 (type2) -->
+                    <div class="product-list__area product-list__area-type2 product-list__count">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__info-area">
+                            <p class="product-list__title">버켄스탁 인기상품 재입고</p>
+                            <div class="product-list__info">
+                                <span class="product-list__time">15분전</span>
+                                <span class="product-list__comment"><em>133</em>개 댓글</span>
+                                <span class="product-list__showcase">쇼케이스 진행중</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- * 상품 : 업데이트 7 (type2) -->
+                    <div class="product-list__area product-list__area-type2 product-list__count">
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img3.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img3.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img3.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__item">
+                            <a href="javascript:void(0)" class="product-list__link">
+                                <div class="product-list__image">
+                                    <img src="https://image.msscdn.net/musinsaUI/homework/goods/img3.jpg" alt="업데이트 상품 이미지">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-list__info-area">
+                            <p class="product-list__title">버켄스탁 인기상품 재입고</p>
+                            <div class="product-list__info">
+                                <span class="product-list__time">15분전</span>
+                                <span class="product-list__comment"><em>133</em>개 댓글</span>
+                                <span class="product-list__showcase">쇼케이스 진행중</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- * 배너 : 슬라이더 type2 (이벤트 슬라이더 구조는 동일 / -type 값으로 구분 -->
+                    <div class="event-banner event-banner-type2">
+                        <div class="swiper-container event-banner__swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide event-banner__item">
+                                    <a href="javascript:void(0)" class="event-banner__link">
+                                        <div class="event-banner__image">
+                                            <img src="https://image.msscdn.net/musinsaUI/homework/banner/sub3.png" alt="아디다스 운동화">
+                                        </div>
+                                        <div class="event-banner__info">
+                                            <p class="event-banner__info-title">아디다스 운동화 4,900원</p>
+                                            <p class="event-banner__info-description">신규 회원 가입 이벤트 참여하기</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+	<script type="text/javascript" src="./libs/js/swiper/6.8.0/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="./dist/js/index.min.js"></script>
+</body>
+</html>

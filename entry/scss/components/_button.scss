@@ -1,0 +1,16 @@
+/*
+ *  File Name : /entry/scss/components/_button.scss
+ *  Description : button
+ */
+
+button {
+    background: none;
+    border: 0;
+}
+.button {
+    &__type-1{
+        @include fontStyle($size: 14px, $family: $G-font-family);
+        @include textStyle($color: $G-color-gray-777, $line-height: 40px);       
+        @include buttonStyle();
+    }
+}

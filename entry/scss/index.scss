@@ -1,0 +1,18 @@
+@charset 'utf-8';
+
+//common
+@import './abstracts/variable';
+@import './abstracts/placeholder';
+@import './abstracts/mixin';
+@import './base/reset';
+@import './base/common';
+@import './components/icon';
+@import './components/button';
+@import './components/navigation';
+@import './components/swiper';
+
+//header
+@import './layout/header';
+
+//section
+@import './layout/ranking', './layout/codi', './layout/update';

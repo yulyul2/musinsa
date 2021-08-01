@@ -1,0 +1,83 @@
+/*
+ *  File Name : /entry/scss/components/_navigation.scss
+ *  Description : navigation
+ */
+
+.navigation-tab {
+    @extend %space-margin;
+
+    display: -webkit-flex;
+    display: flex;
+    width: calc(100% - 30px);
+    height: 40px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+
+    &__button {
+        @include fontStyle($weight: 500, $size: 13px, $family: $G-font-family);
+        @include textStyle($color: $G-color-gray-aaa, $line-height: 19px);
+
+        flex: 1;
+        background-color: transparent;
+        border: 1px solid transparent;
+
+        &.navigation-tab__button--selected {
+            background: $G-color-white;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-weight: bold;
+            color: $G-color-black;
+        }
+    }
+    &__section {
+        &-item {
+            display: none;
+
+            &--show {
+                display: block;
+            }
+        }
+    }
+}
+.navigation-scroll {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 15px;
+
+    &__area {
+        display: -webkit-flex;
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scroll-behavior: smooth;
+        position: relative;
+        padding: 10px 15px;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    &__button {
+        @include fontStyle($size: 14px, $family: $G-font-family);
+
+        flex: none;
+        height: 30px;
+        margin-right: 8px;
+        padding: 0 10px;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        color: $G-color-gray-aaa;
+
+        &:last-child {
+            margin-right: 0;
+        }
+        &.navigation-scroll__button--selected {
+            border-color: $G-color-black;
+            font-weight: bold;
+            color: $G-color-black;
+        }
+    }
+}
