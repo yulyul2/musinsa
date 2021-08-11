@@ -5,7 +5,7 @@ let jsExports = {};
 
 // common configurations
 const config = {
-    mode: "development", // development OR production
+    mode: "production", // development OR production
     output: {
         path: path.resolve(__dirname, "dist/js/"), 
         filename: "[name].min.js"

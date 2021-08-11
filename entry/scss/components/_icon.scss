@@ -18,8 +18,8 @@
     }
 }
 .has-icon {
-    &-arrow-5x9 {
-        @include iconAfter(5px, 9px, $G-image-url-arrow, baseline);
+    &-arrow-5x8 {
+        @include iconAfter(5px, 8px, $G-image-url-arrow, baseline);
     }
     &-arrow-7x12 {
         @include iconAfter(7px, 12px, $G-image-url-arrow, baseline);
