@@ -32,7 +32,7 @@ Scroll.prototype = {
                 const thisBtnDataName = thisBtn.dataset.label;
                 const thisBtnWidth = thisBtn.offsetWidth; 
                 let thisBtnMargin = 8; 
-                let areaSpace = 15;
+                let areaSpace = 8;
                 let allBtnWidth = 0;
 
                 // button select
